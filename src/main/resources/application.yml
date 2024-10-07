@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Portfolio and Blog App
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:6432/blogdb
+    username: admin
+    password: qwerty123
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 2000000
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  data:
+    redis:
+      host: localhost
+      port: 6380
+      timeout: 60000
+      password: qwerty123
+  cache:
+    type: redis
+application:
+  security:
+    jwt:
+      secret-key: CB6ADF9923E812EFB1183336358EC4B85C0510FEB21589B56239F02E7B70FC3B
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
